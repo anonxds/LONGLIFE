@@ -1,0 +1,17 @@
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\bin\Debug\LONGLIFE.exe.config
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\bin\Debug\LONGLIFE.exe
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\bin\Debug\LONGLIFE.pdb
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\obj\Debug\LONGLIFE.Form1.resources
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\obj\Debug\LONGLIFE.Properties.Resources.resources
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\obj\Debug\LONGLIFE.csproj.GenerateResource.cache
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\obj\Debug\LONGLIFE.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\obj\Debug\LONGLIFE.csproj.CopyComplete
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\obj\Debug\LONGLIFE.exe
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\obj\Debug\LONGLIFE.pdb
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\obj\Debug\LONGLIFE.log.resources
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\bin\Debug\System.Data.SQLite.dll
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\bin\Debug\System.Data.SQLite.xml
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\obj\Debug\LONGLIFE.csprojAssemblyReference.cache
+C:\Users\user\source\repos\LONGLIFE\LONGLIFE\bin\Debug\LCDLabel.dll
