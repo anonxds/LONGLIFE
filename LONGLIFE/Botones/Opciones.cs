@@ -46,7 +46,7 @@ namespace LONGLIFE.Botones
         }
         public string bien()
         {
-            return "¿Te encuentras bien?";
+            return "Pararse";
         }
         public string analizar()
         {

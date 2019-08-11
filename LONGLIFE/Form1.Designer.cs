@@ -40,6 +40,10 @@
             this.cmdpanel = new System.Windows.Forms.TableLayoutPanel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnatk = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btndef = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btndagger = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnescopeta = new Bunifu.Framework.UI.BunifuImageButton();
             this.Comandos = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.cbitem = new System.Windows.Forms.ComboBox();
@@ -56,15 +60,11 @@
             this.battlelogtxt = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.lblcomando = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnuse = new Bunifu.Framework.UI.BunifuImageButton();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTiempo = new LCDLabel.LcdLabel();
             this.lblubicacion = new LCDLabel.LcdLabel();
             this.btnsalir = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnuse = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnatk = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btndef = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btndagger = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnescopeta = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnlog = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnstatus = new Bunifu.Framework.UI.BunifuImageButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -76,18 +76,19 @@
             this.lblhp = new LCDLabel.LcdLabel();
             this.lblNhp = new LCDLabel.LcdLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblweapon = new System.Windows.Forms.Label();
             this.dialogbox.SuspendLayout();
             this.panel2.SuspendLayout();
             this.cmdpanel.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.battlepanel.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnsalir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnuse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnatk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btndef)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btndagger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnescopeta)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.battlepanel.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnuse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnsalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnlog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnstatus)).BeginInit();
             this.panel1.SuspendLayout();
@@ -280,6 +281,66 @@
             this.bunifuCustomLabel2.TabIndex = 10;
             this.bunifuCustomLabel2.Text = "Escopeta";
             // 
+            // btnatk
+            // 
+            this.btnatk.BackColor = System.Drawing.Color.Transparent;
+            this.btnatk.Image = global::LONGLIFE.Properties.Resources.rifle;
+            this.btnatk.ImageActive = global::LONGLIFE.Properties.Resources.rifle__1_;
+            this.btnatk.Location = new System.Drawing.Point(3, 3);
+            this.btnatk.Name = "btnatk";
+            this.btnatk.Size = new System.Drawing.Size(95, 73);
+            this.btnatk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnatk.TabIndex = 0;
+            this.btnatk.TabStop = false;
+            this.btnatk.Zoom = 10;
+            this.btnatk.Click += new System.EventHandler(this.btnatk_Click);
+            this.btnatk.MouseHover += new System.EventHandler(this.btnatk_MouseHover);
+            // 
+            // btndef
+            // 
+            this.btndef.BackColor = System.Drawing.Color.Transparent;
+            this.btndef.Image = global::LONGLIFE.Properties.Resources.shield;
+            this.btndef.ImageActive = global::LONGLIFE.Properties.Resources.shield__1_;
+            this.btndef.Location = new System.Drawing.Point(111, 3);
+            this.btndef.Name = "btndef";
+            this.btndef.Size = new System.Drawing.Size(91, 73);
+            this.btndef.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btndef.TabIndex = 1;
+            this.btndef.TabStop = false;
+            this.btndef.Zoom = 10;
+            this.btndef.Click += new System.EventHandler(this.btndef_Click);
+            this.btndef.MouseHover += new System.EventHandler(this.btndef_MouseHover);
+            // 
+            // btndagger
+            // 
+            this.btndagger.BackColor = System.Drawing.Color.Transparent;
+            this.btndagger.Image = global::LONGLIFE.Properties.Resources.dagger;
+            this.btndagger.ImageActive = global::LONGLIFE.Properties.Resources.knife;
+            this.btndagger.Location = new System.Drawing.Point(3, 129);
+            this.btndagger.Name = "btndagger";
+            this.btndagger.Size = new System.Drawing.Size(86, 87);
+            this.btndagger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btndagger.TabIndex = 8;
+            this.btndagger.TabStop = false;
+            this.btndagger.Zoom = 10;
+            this.btndagger.Click += new System.EventHandler(this.btndagger_Click);
+            // 
+            // btnescopeta
+            // 
+            this.btnescopeta.BackColor = System.Drawing.Color.Transparent;
+            this.btnescopeta.Image = global::LONGLIFE.Properties.Resources.shotgun;
+            this.btnescopeta.ImageActive = global::LONGLIFE.Properties.Resources.shotgun__1_;
+            this.btnescopeta.Location = new System.Drawing.Point(111, 129);
+            this.btnescopeta.Name = "btnescopeta";
+            this.btnescopeta.Size = new System.Drawing.Size(71, 71);
+            this.btnescopeta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnescopeta.TabIndex = 6;
+            this.btnescopeta.TabStop = false;
+            this.btnescopeta.Zoom = 10;
+            this.btnescopeta.Click += new System.EventHandler(this.btnescopeta_Click);
+            this.btnescopeta.MouseLeave += new System.EventHandler(this.btnescopeta_MouseLeave);
+            this.btnescopeta.MouseHover += new System.EventHandler(this.btnescopeta_MouseHover);
+            // 
             // Comandos
             // 
             this.Comandos.AutoSize = true;
@@ -304,7 +365,7 @@
             this.cbitem.FormattingEnabled = true;
             this.cbitem.Location = new System.Drawing.Point(100, 3);
             this.cbitem.Name = "cbitem";
-            this.cbitem.Size = new System.Drawing.Size(103, 28);
+            this.cbitem.Size = new System.Drawing.Size(149, 28);
             this.cbitem.TabIndex = 5;
             this.cbitem.SelectedIndexChanged += new System.EventHandler(this.cbitem_SelectedIndexChanged);
             // 
@@ -321,7 +382,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(328, 726);
+            this.label1.Location = new System.Drawing.Point(328, 694);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 20);
             this.label1.TabIndex = 4;
@@ -330,7 +391,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(446, 726);
+            this.label2.Location = new System.Drawing.Point(446, 694);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 20);
             this.label2.TabIndex = 5;
@@ -348,6 +409,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lblweapon);
             this.panel3.Controls.Add(this.lblnombreenemigo);
             this.panel3.Controls.Add(this.lblenemyatk);
             this.panel3.Controls.Add(this.lblenemyhp);
@@ -422,8 +484,24 @@
             this.flowLayoutPanel1.Controls.Add(this.label5);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(22, 629);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(217, 117);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(264, 117);
             this.flowLayoutPanel1.TabIndex = 13;
+            // 
+            // btnuse
+            // 
+            this.btnuse.BackColor = System.Drawing.Color.Transparent;
+            this.btnuse.Enabled = false;
+            this.btnuse.Image = global::LONGLIFE.Properties.Resources.power;
+            this.btnuse.ImageActive = global::LONGLIFE.Properties.Resources.motivation;
+            this.btnuse.Location = new System.Drawing.Point(3, 3);
+            this.btnuse.Name = "btnuse";
+            this.btnuse.Size = new System.Drawing.Size(91, 68);
+            this.btnuse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnuse.TabIndex = 3;
+            this.btnuse.TabStop = false;
+            this.btnuse.Zoom = 10;
+            this.btnuse.Click += new System.EventHandler(this.btnuse_Click);
+            this.btnuse.MouseHover += new System.EventHandler(this.btnuse_MouseHover);
             // 
             // label5
             // 
@@ -495,88 +573,12 @@
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             this.btnsalir.MouseHover += new System.EventHandler(this.btnsalir_MouseHover_1);
             // 
-            // btnuse
-            // 
-            this.btnuse.BackColor = System.Drawing.Color.Transparent;
-            this.btnuse.Enabled = false;
-            this.btnuse.Image = global::LONGLIFE.Properties.Resources.power;
-            this.btnuse.ImageActive = global::LONGLIFE.Properties.Resources.motivation;
-            this.btnuse.Location = new System.Drawing.Point(3, 3);
-            this.btnuse.Name = "btnuse";
-            this.btnuse.Size = new System.Drawing.Size(91, 68);
-            this.btnuse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnuse.TabIndex = 3;
-            this.btnuse.TabStop = false;
-            this.btnuse.Zoom = 10;
-            this.btnuse.Click += new System.EventHandler(this.btnuse_Click);
-            this.btnuse.MouseHover += new System.EventHandler(this.btnuse_MouseHover);
-            // 
-            // btnatk
-            // 
-            this.btnatk.BackColor = System.Drawing.Color.Transparent;
-            this.btnatk.Image = global::LONGLIFE.Properties.Resources.rifle;
-            this.btnatk.ImageActive = global::LONGLIFE.Properties.Resources.rifle__1_;
-            this.btnatk.Location = new System.Drawing.Point(3, 3);
-            this.btnatk.Name = "btnatk";
-            this.btnatk.Size = new System.Drawing.Size(95, 73);
-            this.btnatk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnatk.TabIndex = 0;
-            this.btnatk.TabStop = false;
-            this.btnatk.Zoom = 10;
-            this.btnatk.Click += new System.EventHandler(this.btnatk_Click);
-            this.btnatk.MouseHover += new System.EventHandler(this.btnatk_MouseHover);
-            // 
-            // btndef
-            // 
-            this.btndef.BackColor = System.Drawing.Color.Transparent;
-            this.btndef.Image = global::LONGLIFE.Properties.Resources.shield;
-            this.btndef.ImageActive = global::LONGLIFE.Properties.Resources.shield__1_;
-            this.btndef.Location = new System.Drawing.Point(111, 3);
-            this.btndef.Name = "btndef";
-            this.btndef.Size = new System.Drawing.Size(91, 73);
-            this.btndef.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btndef.TabIndex = 1;
-            this.btndef.TabStop = false;
-            this.btndef.Zoom = 10;
-            this.btndef.Click += new System.EventHandler(this.btndef_Click);
-            this.btndef.MouseHover += new System.EventHandler(this.btndef_MouseHover);
-            // 
-            // btndagger
-            // 
-            this.btndagger.BackColor = System.Drawing.Color.Transparent;
-            this.btndagger.Image = global::LONGLIFE.Properties.Resources.dagger;
-            this.btndagger.ImageActive = global::LONGLIFE.Properties.Resources.knife;
-            this.btndagger.Location = new System.Drawing.Point(3, 129);
-            this.btndagger.Name = "btndagger";
-            this.btndagger.Size = new System.Drawing.Size(86, 87);
-            this.btndagger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btndagger.TabIndex = 8;
-            this.btndagger.TabStop = false;
-            this.btndagger.Zoom = 10;
-            this.btndagger.Click += new System.EventHandler(this.btndagger_Click);
-            // 
-            // btnescopeta
-            // 
-            this.btnescopeta.BackColor = System.Drawing.Color.Transparent;
-            this.btnescopeta.Image = global::LONGLIFE.Properties.Resources.shotgun;
-            this.btnescopeta.ImageActive = global::LONGLIFE.Properties.Resources.shotgun__1_;
-            this.btnescopeta.Location = new System.Drawing.Point(111, 129);
-            this.btnescopeta.Name = "btnescopeta";
-            this.btnescopeta.Size = new System.Drawing.Size(71, 71);
-            this.btnescopeta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnescopeta.TabIndex = 6;
-            this.btnescopeta.TabStop = false;
-            this.btnescopeta.Zoom = 10;
-            this.btnescopeta.Click += new System.EventHandler(this.btnescopeta_Click);
-            this.btnescopeta.MouseLeave += new System.EventHandler(this.btnescopeta_MouseLeave);
-            this.btnescopeta.MouseHover += new System.EventHandler(this.btnescopeta_MouseHover);
-            // 
             // btnlog
             // 
             this.btnlog.BackColor = System.Drawing.Color.Transparent;
             this.btnlog.Image = global::LONGLIFE.Properties.Resources.note;
             this.btnlog.ImageActive = null;
-            this.btnlog.Location = new System.Drawing.Point(314, 652);
+            this.btnlog.Location = new System.Drawing.Point(314, 620);
             this.btnlog.Name = "btnlog";
             this.btnlog.Size = new System.Drawing.Size(71, 71);
             this.btnlog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -590,9 +592,9 @@
             this.btnstatus.BackColor = System.Drawing.Color.Transparent;
             this.btnstatus.Image = global::LONGLIFE.Properties.Resources.helmet;
             this.btnstatus.ImageActive = global::LONGLIFE.Properties.Resources.helmet1;
-            this.btnstatus.Location = new System.Drawing.Point(441, 652);
+            this.btnstatus.Location = new System.Drawing.Point(441, 620);
             this.btnstatus.Name = "btnstatus";
-            this.btnstatus.Size = new System.Drawing.Size(71, 71);
+            this.btnstatus.Size = new System.Drawing.Size(73, 71);
             this.btnstatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnstatus.TabIndex = 5;
             this.btnstatus.TabStop = false;
@@ -796,6 +798,15 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // lblweapon
+            // 
+            this.lblweapon.AutoSize = true;
+            this.lblweapon.Location = new System.Drawing.Point(16, 80);
+            this.lblweapon.Name = "lblweapon";
+            this.lblweapon.Size = new System.Drawing.Size(18, 20);
+            this.lblweapon.TabIndex = 14;
+            this.lblweapon.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -825,18 +836,18 @@
             this.panel2.ResumeLayout(false);
             this.cmdpanel.ResumeLayout(false);
             this.cmdpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnatk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btndef)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btndagger)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnescopeta)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.battlepanel.ResumeLayout(false);
             this.battlepanel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnsalir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnuse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnatk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btndef)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btndagger)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnescopeta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnsalir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnlog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnstatus)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -893,6 +904,7 @@
         private LCDLabel.LcdLabel lcdLabel2;
         private LCDLabel.LcdLabel lblammo;
         private LCDLabel.LcdLabel lblescopeta;
+        private System.Windows.Forms.Label lblweapon;
     }
 }
 

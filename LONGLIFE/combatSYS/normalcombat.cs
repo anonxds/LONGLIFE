@@ -19,8 +19,13 @@ namespace LONGLIFE.combatSYS
 
 
         Sound sfx = new Sound();
+        Random random = new Random();
+        dialogos _dialogos = new dialogos();
+        sql s = new sql();
+        item _i = new item();
         int counter = 0;
         int len = 0;
+        int damage;
         string text;        
         void readmessage(string mensage,TextBox sendmesasge,Timer timer1)
         {
@@ -46,15 +51,7 @@ namespace LONGLIFE.combatSYS
             }
            
         }
-        
-
-
-        Random random = new Random();
-        dialogos _dialogos = new dialogos();
-        sql s = new sql();
-        int damage;
-
-        public void seleccion(string cmd,int myhp,int myatk,int mydef,int enemyhp,int enemydef,int enemyatk,Label displayenemyhp,LcdLabel displayMyhp,Panel dialog,Label _log,Panel cmdlist,string enemyname,Timer _start,TextBox mycommand,string _item,ComboBox cbitem)
+        public void seleccion(string cmd,string weapon,int myhp,int myatk,int mydef,int enemyhp,int enemydef,int enemyatk,Label displayenemyhp,LcdLabel displayMyhp,Panel dialog,Label _log,Panel cmdlist,string enemyname,Timer _start,TextBox mycommand,string _item,ComboBox cbitem)
         {
            
             dialog.Enabled = false;
@@ -62,11 +59,11 @@ namespace LONGLIFE.combatSYS
             switch (cmd)
             {
                 case "ATK":
-                    myATK(randomNumber,enemyhp,enemydef,displayenemyhp,_log,dialog,cmdlist,mycommand,_start);
+                    myATK(weapon,randomNumber,enemyhp,enemydef,displayenemyhp,_log,dialog,cmdlist,mycommand,_start,enemyname);
                     break;
                 case "DEF":
                     _log.Text = "Me cubro con todo lo que puedo \n";
-                    mydef = mydef + 1;
+                    mydef = mydef + 2;
                     break;
                 case "NADA":
                     _log.Text = "Me quedo parado en pleno combate \n";
@@ -76,8 +73,7 @@ namespace LONGLIFE.combatSYS
                     break;
             }
             //parte donde ataca el enemigo
-            int _enemyhp = int.Parse(displayenemyhp.Text);
-            
+            int _enemyhp = int.Parse(displayenemyhp.Text);            
             if (_enemyhp > 0)
             {                
                 Enemyturn(enemyatk, myhp,mydef, displayMyhp,_log,enemyname,mycommand,_start);
@@ -89,7 +85,6 @@ namespace LONGLIFE.combatSYS
 
         void items(string nombre, int myatk, int enemyhp, int enemydef, Label _enemyhp, Label _log, Panel dialog, Panel cmd, TextBox mycommand, Timer timer1,ComboBox cbitem,LcdLabel myhp)
         {
-            item _i = new item();
             switch (nombre)
             {
                 case "Granada":
@@ -114,34 +109,29 @@ namespace LONGLIFE.combatSYS
             s.populate(cbitem, "select * from items", "nombre");
         }
 
-        void myATK(int myatk,int enemyhp,int enemydef, Label _enemyhp,Label _log,Panel dialog,Panel cmd,TextBox mycommand,Timer timer1)
+        void myATK(string weapon,int myatk,int enemyhp,int enemydef, Label _enemyhp,Label _log,Panel dialog,Panel cmd,TextBox mycommand,Timer timer1,string enemyname)
         {
             if (myatk <= enemydef)
             {
                 readmessage(("Sora ataca: " + 0 + " de daño. Parece ser inpenetrable" + " \n"), mycommand, timer1);
-
             }
             else
             {
-                damage = myatk - enemydef;
-                int quedecir = random.Next(0,  2);       
-                _enemyhp.Text = (int.Parse(_enemyhp.Text) - damage).ToString();
-                readmessage(("\n"+"Sora ataca: " + damage + " de daño" + "\n"), mycommand,timer1);
+               
+             //   damage = myatk - enemydef;
+                _enemyhp.Text = (int.Parse(_enemyhp.Text) - weakness(enemyname, myatk,weapon)).ToString();
+                readmessage(("\n"+"Sora ataca: " + weakness(enemyname, myatk,weapon) + " de daño" + "\n"), mycommand,timer1);
             }
         }
        void checkenemyhp(int enemyhp, Label _log, Panel dialog, Panel cmd,TextBox battlelog)
-        {
-           
+        {           
             if (enemyhp <= 0)
-            {
-              
+            {              
                 _log.Text += "Fui exitoso en mi pelea";
                 dialog.Enabled = true;
                 cmd.Visible = false;
-
             }
         }
-
         void Enemyturn(int enemyatk,int myhp,int mydef,LcdLabel _HP,Label _log,string enemyname,TextBox enemyconmand,Timer timer1)
         { 
             
@@ -175,8 +165,38 @@ namespace LONGLIFE.combatSYS
                 case "Ratas":
                     _stat = new ratas();
                     break;
+                case "Papelon":
+                    _stat = new Papelon();
+                    break;
             }
             return Tuple.Create(_stat.Nameatk(numero).Item1,_stat.Nameatk(numero).Item2);
+        }
+
+        public int weakness(string nombre,int dmg,string weapon)
+        {
+            stats _stat = null;
+            switch (nombre)
+            {
+                case "Soldado NormalS":
+                    _stat = new soldado();
+                    break;
+                case "gato":
+                    _stat = new gatoputrefacto();
+                    break;
+                case "joven":
+                    _stat = new rebellista();
+                    break;
+                case "nino":
+                    _stat = new ninos();
+                    break;
+                case "Ratas":
+                    _stat = new ratas();
+                    break;
+                case "Papelon":
+                    _stat = new Papelon();
+                    break;
+            }
+            return _stat.weakness(weapon, dmg);
         }
     }
 }

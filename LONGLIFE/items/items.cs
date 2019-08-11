@@ -18,16 +18,16 @@ namespace LONGLIFE.items
         public void usaritem(string nombre,LcdLabel hp,ComboBox cbitem,Label dialog)
         {
             int heal;
+            string fullhealth = s.getdata("select * from personaje", "HP");
             switch (nombre)
             {               
-                case "Pomada":
-                    
+                case "Pomada":                   
                     heal = 4;
                     hp.Text = (int.Parse(hp.Text) + heal).ToString();
                     dialog.Text = "Uso pomada";
-                    if (int.Parse(hp.Text) >= int.Parse(s.getdata("select * from personaje", "HP")))
+                    if (int.Parse(hp.Text) >= int.Parse(fullhealth))
                     {
-                        hp.Text = s.getdata("select * from personaje", "HP");
+                        hp.Text = fullhealth;
                     }
                     break;
                 case "Ciabatta™ chica de jamon":
@@ -55,16 +55,19 @@ namespace LONGLIFE.items
                 case "Obtuve Balas":                  
                     shot.Text = (int.Parse(shot.Text) + cantidad).ToString();
                     break;
-                case "Obtuve Ciabatta™":
-                    string ciabata = string.Format("insert into items (nombre,Type) values ('{0}','{1}')", "Ciabatta™ chica de jamon", 1);
-                    s.Exe(ciabata);
+                case "Obtuve Ciabatta™":                   
+                    guardar("Ciabatta™ chica de jamon", 1);
                     break;
-                case "Obtuve Granada":
-                    string granada = string.Format("insert into items (nombre,Type) values ('{0}','{1}')", "Granada", 2);
-                    s.Exe(granada);
+                case "Obtuve Granada":                  
+                    guardar("Granada", 2);
                     break;
             }
             s.populate(cbitem, "select * from items where Type = 1", "nombre");
+        }
+        void guardar(string item,int type)
+        {
+            string items = string.Format("insert into items (nombre,Type) values ('{0}','{1}')", item, type);
+            s.Exe(items);
         }
     }
 }

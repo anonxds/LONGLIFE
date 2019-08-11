@@ -28,6 +28,7 @@ namespace LONGLIFE
         Random random = new Random();
         item _i = new item();
         Sound sfx = new Sound();
+        dialogoplus Dplus = new dialogoplus();
         public static string _logs;
         //
         int i = 0;
@@ -41,16 +42,16 @@ namespace LONGLIFE
         int enemydef;
         string text;
         string _ruta;
-
+        string weapon;
         //
         List<string> despertar = new List<string>{
-    "Pero escucho un disparo fuerte. Mis oidos zumba porque pego a la pared metálica.",  
-    "— !Sora!",
-    "— Ugghhhhhhhhhhhh",
-    "— ¡Sora por favor despierta!",
-    "— ¿Qué sucede?",
-    "— Nos están atacando Sora, y el escuadron se encuentran afuera. Solo soy yo.",
-    "— ¡Que!— agarro mi rifle.",
+    "Un disparo fuerte retumba mis oídos. Creo que la bala pego la pared metálica.",
+    "“¡Sora!”",
+    "“Uhhhhhhhhhhhh”",
+    "“¡Sora por favor despierta¡”",
+    "“¿Que sucede?”",
+    "“Nos están atacando, el escuadrón se encuentra afuera. Solo soy yo.”",
+    "Mi mente apenas está recuperando conciencia; dos balas atraviesa los lados de mi cuello.\n Agarro mi rifle.",
     "Eran dos atacantes; no se les podía ver el rostro. Lo pobres esclavos no saben que hacen con su vida."
 };
         string mystast = "select * from personaje";
@@ -115,17 +116,34 @@ namespace LONGLIFE
                 lblubicacion.Text = "Afuera del refugio";
                 lblTiempo.Text = "11:00 A.M";
             }
+            if(lbldialog.Text == "Papelon se acerca")
+            {
+                cbitem.Text = null;
+                s.populate(cbitem, "select * from items", "nombre");
+                enemystast("Papelon");
+                cmdpanel.Visible = true;
+
+            }
 
             if (i >= despertar.Count)
             {
               string texto = despertar[i-1];
                 switch (texto)
                 {
+                
+                    case "...Y ahora ¿que?":
+                        panel2.Show();
+                        opciones("Ir a la cama", "Caminar por el area", "Salir");
+                        break;
+                    case "¿Cómo lo motivo?":
+                        panel2.Show();
+                        opciones("Le doy el pulgar", "Mirarlo profundamente", "Agresivo");
+                        break;
                     case "Eran dos atacantes; no se les podía ver el rostro. Lo pobres esclavos no saben que hacen con su vida.":
                         panel2.Show();
                         opciones(_text.llamar(),_text.cubrir(),_text.hacer());
                         break;
-                    case "¡Pepes cúbrete están atacando donde sea!":
+                    case "Soldado desconocido se acerca.":
                         cbitem.Text = null;
                         s.populate(cbitem, "select * from items", "nombre");
                         enemystast("soldado");
@@ -137,6 +155,7 @@ namespace LONGLIFE
                         enemystast("Ratas");
                         cmdpanel.Visible = true;
                         break;
+                  
                     case "Creo que me acuerdo de algo...":
                         panel2.Show();
                         opciones(_text.aventargranada(), _text.noaventar(), _text.pensando());
@@ -144,7 +163,7 @@ namespace LONGLIFE
                     case "Pepes agarran una de sus granadas y los avienta hacia ellos. Los dos intrusos se dan cuenta \ny salen del lugar.":
                         agregartextE(dialogo.granda());
                         break;
-                    case "Le doy el pulgar arriba a Pepes. Pero hay que estar en cubierta. Puede que ellos entren de nuevo… \n¿Qué hare?":
+                    case "Hay que estar en cubierta. Puede que ellos entren de nuevo... ¿Qué hare?":
                         panel2.Show();
                         opciones(_text.esperar(), _text.salir(), _text.bien());
                         break;
@@ -243,54 +262,66 @@ namespace LONGLIFE
         }
         private void btnatk_Click(object sender, EventArgs e)
         {
-                 Stream ak47 = Properties.Resources.ak47;
-                 int m4ammo = int.Parse(lblammo.Text);
-                 int randomNumber = random.Next(5, 10);
-                 lblammo.Text = (m4ammo - randomNumber).ToString();
-                 if (int.Parse(lblammo.Text) < randomNumber)
-                 {
-                     lblammo.Text = "0";
-                 }
-                 sfx.playsound(ak47);
-                 myatk = int.Parse(s.getdata(mystast, "ATK"));
-                 comamando("ATK", (myatk + 1), null);
-                 
             wastem4ammo();
         }
         void wastem4ammo()
         {
-          
-              Stream ak47 = Properties.Resources.ak47;         
-                int m4ammo = int.Parse(lblammo.Text);
-                int randomNumber = random.Next(5, 10);
+            int m4ammo = int.Parse(lblammo.Text);
+            if (m4ammo <= 0)
+            {
+                lbldialog.Text = "No tengo municion";
+            }
+            else
+            {
+                Stream ak47 = Properties.Resources.ak47;
+                sfx.playsound(ak47);
+                int randomNumber = random.Next(5, 9);
                 lblammo.Text = (m4ammo - randomNumber).ToString();
                 if (int.Parse(lblammo.Text) < randomNumber)
                 {
                     lblammo.Text = "0";
                 }
-            //
-            switch (cmdpanel.Visible)
-            {
-                case true:
-                    sfx.playsound(ak47);
-                    myatk = int.Parse(s.getdata(mystast, "ATK"));
-                    comamando("ATK", (myatk + 1), null);
-                    break;
-            }
-            //
+                switch (cmdpanel.Visible)
+                {
+                    case true:
+                        lblweapon.Text = "M4";
+                        myatk = int.Parse(s.getdata(mystast, "ATK"));
+                        comamando("ATK", (myatk + 1), null);
+                        break;
+                }
+            }           
         }
         void wasteshotgunammo()
         {
-            Stream stream = Properties.Resources.escopeta;
-            sfx.playsound(stream);
-            int m4ammo = int.Parse(lblescopeta.Text);            
-            lblescopeta.Text = (m4ammo - 1).ToString();
-            
+            int escopeta = int.Parse(lblescopeta.Text);
+            if (escopeta <= 0)
+            {
+                lbldialog.Text = "No tengo municion";
+            }
+          
+            else
+            {
+                Stream stream = Properties.Resources.escopeta;
+                sfx.playsound(stream);
+                lblescopeta.Text = (escopeta - 1).ToString();
+                switch (cmdpanel.Visible)
+                {
+                    case true:
+                        lblweapon.Text = "Escopeta";
+                        myatk = int.Parse(s.getdata(mystast, "ATK"));
+                        comamando("ATK", (myatk + 4), null);
+                        break;
+                }
+            }
+
+        }
+        private void btnescopeta_Click(object sender, EventArgs e)
+        {
+            wasteshotgunammo();
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-           
+        {         
         }
 
         private void btnlog_Click(object sender, EventArgs e)
@@ -321,6 +352,14 @@ namespace LONGLIFE
             _ruta = btnop1.Text;
             switch (_ruta)
             {
+                case "Ir a la cama":
+                    agregartext(Dplus.Cama());
+                    agregartext(dialogo.salir());
+                    break;
+                case "Le doy el pulgar":
+                    agregartext(dialogo.pulgar());
+                    agregartext(dialogo.adentrodelrefugio());
+                    break;
                 case "Continuar":
                     agregartext(dialogo.dibujocont2());
                     break;
@@ -340,8 +379,9 @@ namespace LONGLIFE
                     }
                     else
                     {
-                        agregartext(dialogo.disparar2());
                         wastem4ammo();
+                        agregartext(dialogo.disparar2());
+                      
                     }
                     break;
                 case "Ir al cuarto de los padres":
@@ -410,6 +450,13 @@ namespace LONGLIFE
 
             switch (_ruta)
             {
+                case "Caminar por el area":
+                    agregartext(Dplus.A_Alrededor());
+                    break;
+                case "Mirarlo profundamente":
+                    agregartext(dialogo.Mirar());
+                    agregartext(dialogo.adentrodelrefugio());
+                    break;
                 case "Cubrirme":
                     agregartext(dialogo.cubrir());
                     break;
@@ -457,22 +504,21 @@ namespace LONGLIFE
             despertar.AddRange(op2);
         }
         public void agregartextE(string[] op2)
-        {
-            
+        {            
             panel2.Hide();
             despertar.AddRange(op2);
         }
         normalcombat combat = new normalcombat();
      
-
-      
-      
-
         private void btnop3_Click(object sender, EventArgs e)
         {
             _ruta = btnop3.Text;
             switch (_ruta)
             {
+                case "Agresivo":
+                    agregartext(dialogo.agresividad());
+                    agregartext(dialogo.adentrodelrefugio());
+                    break;
                 case "Parar":
                     agregartext(dialogo.rumba());
                     break;
@@ -493,8 +539,8 @@ namespace LONGLIFE
                     panel2.Hide();
                     lblhp.Text = (int.Parse(lblhp.Text) - 2).ToString();
                     break;
-                case "¿Te encuentras bien?":
-                    agregartext(dialogo.PepesP());
+                case "Pararse":
+                    agregartext(Dplus.levantarse());
                     break;
                 case "Pensar":
 
@@ -548,33 +594,15 @@ namespace LONGLIFE
                         }
                     }
                     break;
-
-
-
             }
          
         }
 
-        private void btnatk_MouseHover(object sender, EventArgs e)
-        {
-            toolTip1.SetToolTip(btnatk, "Usar rifle");
+        private void btnatk_MouseHover(object sender, EventArgs e){toolTip1.SetToolTip(btnatk, "Usar rifle");}
+        private void btndef_MouseHover(object sender, EventArgs e){toolTip1.SetToolTip(btndef, "Defender");}
+        private void btnnothing_MouseHover(object sender, EventArgs e){}
+        private void btnuse_MouseHover(object sender, EventArgs e){toolTip1.SetToolTip(btnuse, "Usar item");}
 
-        }
-
-        private void btndef_MouseHover(object sender, EventArgs e)
-        {
-            toolTip1.SetToolTip(btndef, "Defender");
-
-        }
-
-        private void btnnothing_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void btnuse_MouseHover(object sender, EventArgs e)
-        {
-            toolTip1.SetToolTip(btnuse, "Usar item");
-        }
         public void enemystast(string mob)
         {
             stats _stat = null;
@@ -595,9 +623,10 @@ namespace LONGLIFE
                 case "Ratas":
                     _stat = new ratas();
                     break;
-
+                case "Papelon":
+                    _stat = new Papelon();
+                    break;
             }
-
             lblenemyhp.Text = _stat.hp().ToString();
             lblenemyatk.Text = _stat.atk().ToString();
             lblenemydef.Text = _stat.def().ToString();
@@ -614,7 +643,8 @@ namespace LONGLIFE
             enemydef = int.Parse(lblenemydef.Text);
             enemyatk = int.Parse(lblenemyatk.Text);
             string enemyname = lblnombreenemigo.Text;
-            combat.seleccion(cmd, myhp, myatk, mydef, enemyhp, enemydef, enemyatk, lblenemyhp, lblhp, dialogbox, lbldialog, cmdpanel,enemyname,dialogtimer,battlelogtxt,item,cbitem);
+            weapon = lblweapon.Text;
+            combat.seleccion(cmd,weapon, myhp, myatk, mydef, enemyhp, enemydef, enemyatk, lblenemyhp, lblhp, dialogbox, lbldialog, cmdpanel,enemyname,dialogtimer,battlelogtxt,item,cbitem);
             eventos();
         }
 
@@ -633,46 +663,22 @@ namespace LONGLIFE
             btnuse.Enabled = true;
         }
 
-        private void btnsalir_MouseHover(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnescopeta_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
-
+        private void btnsalir_MouseHover(object sender, EventArgs e){}
+        private void btnescopeta_MouseLeave(object sender, EventArgs e){}
         private void btnescopeta_MouseHover(object sender, EventArgs e)
+
         {
             toolTip1.SetToolTip(btnescopeta, "Escopeta");
 
         }
-
-        private void btnescopeta_Click(object sender, EventArgs e)
-        {
-        
-            int m4ammo = int.Parse(lblescopeta.Text);
-            if (m4ammo <= 0)
-            {
-                lbldialog.Text = "Ya no tengo mas municion";
-            }
-            else
-            {
-                Stream stream = Properties.Resources.escopeta;
-                sfx.playsound(stream);
-                lblescopeta.Text = (m4ammo - 1).ToString();
-                myatk = int.Parse(s.getdata(mystast, "ATK"));
-                comamando("ATK",(myatk+3),null);
-            }
-        }
-
         private void btndagger_Click(object sender, EventArgs e)
         {
+            lblweapon.Text = "Dagga";
             Stream dagger = Properties.Resources.atk;
             sfx.playsound(dagger);
             myatk = int.Parse(s.getdata(mystast, "ATK"));
             comamando("ATK", myatk,null);
+            
         }
 
         private void btnuse_Click(object sender, EventArgs e)
@@ -695,23 +701,12 @@ namespace LONGLIFE
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
             lblcomando.Text = null;
-
         }
 
-        private void battlepanel_ControlAdded(object sender, ControlEventArgs e)
-        {
-
-        }
-
-        private void btnstatus_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dialogbox_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void battlepanel_ControlAdded(object sender, ControlEventArgs e){}
+        private void btnstatus_Click(object sender, EventArgs e){}
+        private void dialogbox_Paint(object sender, PaintEventArgs e){}
+        private void lblescopeta_Click(object sender, EventArgs e) {}
 
         private void btnsalir_Click(object sender, EventArgs e)
         {
@@ -720,15 +715,7 @@ namespace LONGLIFE
             this.Close();
         }
 
-        private void btnsalir_MouseHover_1(object sender, EventArgs e)
-        {
-            toolTip1.SetToolTip(btnsalir, "Salir de la realidad");
+        private void btnsalir_MouseHover_1(object sender, EventArgs e){toolTip1.SetToolTip(btnsalir, "Salir de la realidad");}
 
-        }
-
-        private void lblescopeta_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

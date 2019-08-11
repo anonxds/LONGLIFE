@@ -99,6 +99,7 @@
                 "Ciabatta™ pequena",
                 "Contiene Jamón de alta calidad, pepperoni desde Francia, lechuga fresca, cebolla morada con\n cortada fina, mayonesa pero no hay mucha para el sabor no cubra toda la torta y queso que se\n puede oler.",
                 "Y ¿Qué es esto? Las vende a 30 de una moneda desconocida y las vende en una escuela que esta\n llena de genios.",
+                "La vendedora es una persona que tiene lentes y carga un caparazón rojo...",
                 "O espera es una mochila.",
                 "¡Una foto! No se siento que no confiaría esta persona con mis ordenes se le cara que se le olvida\n las promesas.",
                 "En la foto se muestra una muchacha con brazos abiertos levantando las Ciabatta™ y\n ofreciéndoles sin parar...",
@@ -306,6 +307,7 @@
             };
             return esperar;
         }
+        
         public string[] salir()
         {
             string[] salir = new string[]
@@ -316,32 +318,64 @@
             };
             return salir;
         }
-        public string[] PepesP()
-        {
-            string[] Pepes = new string[]
-            {
-    "— ¿Te encuentras bien Pepes?",
-"— ¿Uh? — Pepes voltea confundido — S.s.si me encuentro bien. Mi corazón casi explota\n hace unos momentos. Lamento que no pude dispararle a ninguna persona Sora... es que\n, es que no puedo llegar a ese nivel...",
-"— Se cómo se siente... solía ser una persona con un gran futuro delante... pero del\n día a la noche me convertí una máquina de mata humanos. Quien iba creer que una\n persona tan amorosa como yo iba terminar haciendo estos tipos de actos. Algunas veces\n pienso que pierdo toda conciencia en mi cuerpo... Como si fuera un caparazón vacío\n siguiendo órdenes—",
-"Pepes sonríe y saca algo de su mochila.",
-"Obtuve Balas de escopeta x 1",
-"Creo que era tiempo de salir; Cuidadosamente salimos del refugio, esperando que no\n nos atacaran por sorpresa... Pero el área está libre. Le di la orden a Pepes para\n que reclute a los demás. ",
-"El amanecer es bello como cualquier otro día; el olor a quemado y gasolina y el\n cielo de color café claro por la contaminación de la guerra... siento que será un\n gran día.", "Mientras que espero a Pepes ¿Qué hare?..."
+ 
 
-            };
-            return Pepes;
+        //---------------------------------------------
+        public string[] pulgar()
+        {
+            string[] primercombate = new string[]{
+          "Veo con mis ojos bien abiertos a Pepes.",
+        "Levanto fuerte mi pulgar con fuerza; hasta se ven las venas",
+        "Una gran sonrisa y un guino",
+        "Le grito a Pepes",
+        "“Okey”",
+        "Eso se sintio excelente"
+};
+            return primercombate;
         }
+        public string[] Mirar()
+        {
+            string[] primercombate = new string[]{
+          "Lentamente abro mis ojos mas y mas, y miro a Pepes",
+          "Pepes me queda mirando y empieza a respirar rapidamente...",
+          "Creo que quiere llorar",
+          "........Olvidalo queria bostezar",
+          "Creo que tambien quiero bostezar"
+};
+            return primercombate;
+        }
+        public string[] agresividad()
+        {
+            string[] primercombate = new string[]{
+         "Elevo mi voz fuerte",
+         "“No seas una perra ¡PERRA!”",
+         "Pepes rie como loco",
+         "Eso se sintio raro"
+};
+            return primercombate;
+        }
+
+        //---------------------------
+        public string[] adentrodelrefugio()
+        {
+            string[] primercombate = new string[]{
+          "Hay que estar en cubierta. Puede que ellos entren de nuevo... ¿Qué hare?"
+};
+            return primercombate;
+        }
+
+
 
         public string[] primercombate()
         {
             string[] primercombate = new string[]{
     "Disparo una vez más; y la bala atraviesa la cara del enemigo, su sangre y tripas mancharon \nla pared metálica.",
-    "— Oyes Pepes tengo una pregunta —",
-    "— ¿Si? — Contesta Pepes",
-    "— Puedo ver tus granadas por un momento…—",
-    "—Claro—Pepes me da sus granadas.",
-    "La miro profundamente… como debí saber. Volteo a mirar a Pepes y lo veo que continua temblando de terror \ndespués del combate… creo que yo sé una manera para motivarlo.",
-"Le doy el pulgar arriba a Pepes. Pero hay que estar en cubierta. Puede que ellos entren de nuevo… \n¿Qué hare?"
+    "“Oyes tengo una pregunta”",
+    "“¿Si?” Contesta Pepes.",
+    "“Me puedes dar una de tus granadas”",
+    "“Claro” Pepes me avienta una de sus granadas.",
+"La Miro profundamente... Como debí saber. Volteo a mirar a Pepes; lo veo que continúa\n temblando de terror después del ataque... ",
+ "¿Cómo lo motivo?"
 };
             return primercombate;          
         }
@@ -349,9 +383,9 @@
         {
             string[] tirar = new string[]
             {
-                "— ¡Pepes! Tira una granada.",
-                "— ¿Eh? ¡Estás loca, nos materos!",
-                "— ¡Aviéntalo es una orden! —",
+                "“¡Pepes!  Tira una granada”",
+                "“¿Cómo? ¡Nos mataremos!”",
+                "“¡Aviéntalo es una orden!”",
                 "Pepes agarran una de sus granadas y los avienta hacia ellos. Los dos intrusos se dan cuenta \ny salen del lugar."
 
             };
@@ -361,10 +395,10 @@
         public string[] granda()
         {
             string[] granada = new string[]{
-    "— Como supiste ¿Que tenia granadas falsas?— Pregunto Pepes",
-"— Muy simple, les pedi que te lo dieran por que les temes tanto. Y es una obligación cargarlas… algo ilógico \npero sabia que nos iba funcionar.",
-"— Eso en verdad no tiene sentido – Pepes contesta",
-"Le doy el pulgar arriba a Pepes. Pero hay que estar en cubierta. Puede que ellos entren de nuevo… \n¿Qué hare?"    };
+    "“Oyes como supiste ¿Qué tenía granadas falsas?” Pregunta pepes.",
+"“Muy simple, les pedí que te dieran descompuestas, porque les temes tanto. Es una obligación\n cargarlas... es algo ilógico, pero en caso de estrategia como la que sucedió funciono\n perfectamente”",
+"Pepes continua de rodillas temblando.",
+"Hay que estar en cubierta. Puede que ellos entren de nuevo... ¿Qué hare?"};
             return granada;
         }
         
@@ -372,7 +406,7 @@
         {
             string[] granada = new string[]
             {
-                "Volteo a mirar a Pepes esta temblando de miedo, que ni siquiera ve a donde dispara",
+                "Volteo a mirar a Pepes; esta temblando de miedo, ni si quiere se anima a disparar",
                 "Creo que me acuerdo de algo..."
             };
             return granada;
@@ -395,14 +429,16 @@
             string[] _llamar = new string[]{
     "Agarro el radio y llamo a mis integrantes... Pero nadie contesta... Maldición deberán estar dormidos...",
     "¡Ack! una bala raspa un lado de mi hombro.",
-       "¡Pepes cúbrete están atacando donde sea!"
+       "¡Pepes cúbrete están atacando donde sea!",
+       "Soldado desconocido se acerca."
 };
             return _llamar;
         }
         public string[] cubrir()
         {
             string[] cubrirme = new string[]{
-    "¡Pepes cúbrete están atacando donde sea!"
+    "¡Pepes cúbrete están atacando donde sea!",
+    "Soldado desconocido se acerca."
 };
             return cubrirme;
         }
@@ -411,11 +447,13 @@
         {
             string[] hacer = new string[]
 {
-"¿Que estamos haciendo?",
-"Como que ¿Qué estamos haciendo? Estamos en la guerra y do...............",
-"Pepes dejo de hablar, y por su boca empezó escurrir sangre. Cayó al suelo",
-"En cuanto estaba recuperando la noción en donde nos encontramos… sentí un gran dolor en la espalda.\n Me toco la espalda; ¡sangre!... acaso me corte",
-"De repente mi vista se pone negra"
+"“¿Qué estamos haciendo?”",
+"“Que, que ¿a qué te refieres? Estamos siendo atacados...”",
+"Pepes me ve con cara de inconformidad, mientras veo que balas pasan por mi vista.",
+"“Ten”",
+"Pepes me avientan munición.",
+"Obtuve NATO x 15",
+"Soldado desconocido se acerca."
 };
             return hacer;
         }

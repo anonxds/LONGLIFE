@@ -13,5 +13,6 @@ namespace LONGLIFE.NPC
        public abstract int atk();
       public abstract string nombre();
         public abstract Tuple<string, int> Nameatk(int number);
+        public abstract int weakness(string nombre,int dmg);
     }
 }

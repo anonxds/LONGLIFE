@@ -59,7 +59,7 @@
             this.panel1.Controls.Add(this.lbllog);
             this.panel1.Location = new System.Drawing.Point(105, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 821);
+            this.panel1.Size = new System.Drawing.Size(754, 898);
             this.panel1.TabIndex = 1;
             // 
             // btnsalir
@@ -91,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LONGLIFE.Properties.Resources.Paper;
-            this.ClientSize = new System.Drawing.Size(871, 858);
+            this.ClientSize = new System.Drawing.Size(871, 1010);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.panel1);

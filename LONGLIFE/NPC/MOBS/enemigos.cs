@@ -8,10 +8,11 @@ namespace LONGLIFE.NPC.MOBS
 {
  public class soldado : stats
     {
-        enum stats {HP = 4
-                ,DEF = 1
+        enum stats {HP = 40
+                ,DEF = 2
                 ,ATK = 1
         };
+   
        
         public override int hp()
         {
@@ -22,7 +23,7 @@ namespace LONGLIFE.NPC.MOBS
         {
             return (int)stats.DEF;
         }
-
+        
         public override int atk()
         {
             return (int)stats.ATK;
@@ -53,13 +54,31 @@ namespace LONGLIFE.NPC.MOBS
 
             return Tuple.Create(nombre, atk);
         }
+        int damage;
+        public override int weakness(string nombre,int dmg)
+        {
+            
+            switch (nombre)
+            {
+                case "M4":
+                   damage =  dmg * 3 - (int)stats.DEF;
+                    break;
+                case "Dagga":
+                    damage =  (dmg * 2) - (int)stats.DEF;
+                    break;
+                case "Escopeta":
+                    damage =   dmg * 4 - (int)stats.DEF;
+                    break;
+            }
+            return damage;
+        }
     }
     class ratas : stats
     {
         enum stats
         {
-            HP = 30
-               , DEF = 1
+            HP = 20
+               , DEF = 0
                , ATK = 2
         };
 
@@ -91,15 +110,84 @@ namespace LONGLIFE.NPC.MOBS
             {
                 case 0:
                     nombre = "Trata de morderne";
-                    atk = (int)stats.ATK * 2;
+                    atk = (int)stats.ATK * 1;
                     break;
                 case 1:
                     nombre = "Varias ratas tratan de treparse a mi cuerpo";
-                    atk = (int)stats.ATK * 4;
+                    atk = (int)stats.ATK * 2;
                     break;
             }
 
             return Tuple.Create(nombre, atk);
+        }
+        int damage;
+        public override int weakness(string nombre, int dmg)
+        {
+            switch (nombre)
+            {
+                case "M4":
+                    damage = dmg * 2 - (int)stats.DEF;
+                    break;
+                case "Dagga":
+                    damage = (dmg * 3) - (int)stats.DEF;
+                    break;
+                case "Escopeta":
+                    damage = dmg * 4 - (int)stats.DEF;
+                    break;
+            }
+            return damage;
+        }
+    }
+    public class Papelon : stats
+    {
+        enum stats
+        {
+            HP = 10,
+            ATK = 2,
+            DEF = 0,
+        }
+        public override int atk()
+        {
+            return (int)stats.ATK;
+        }
+
+        public override int def()
+        {
+            return (int)stats.DEF;
+        }
+
+        public override int hp()
+        {
+            return (int)stats.HP;
+        }
+
+        public override Tuple<string, int> Nameatk(int number)
+        {
+            int atk = (int)stats.ATK;
+            string nombre = null;
+            switch (number)
+            {
+                case 0:
+                    nombre = "Dispara pelo de agujas";
+                    atk = (int)stats.ATK * 2;
+                    break;
+                case 1:
+                    nombre = "Escupe un nuez a una velocidad sorprendente";
+                    atk = (int)stats.ATK * 3;
+                    break;
+            }
+
+            return Tuple.Create(nombre, atk);
+        }
+
+        public override string nombre()
+        {
+            return "Papelon";
+        }
+
+        public override int weakness(string nombre, int dmg)
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -131,6 +219,11 @@ namespace LONGLIFE.NPC.MOBS
                 }
 
         public override Tuple<string, int> Nameatk(int number)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int weakness(string nombre, int dmg)
         {
             throw new NotImplementedException();
         }
@@ -167,6 +260,11 @@ namespace LONGLIFE.NPC.MOBS
         {
             throw new NotImplementedException();
         }
+
+        public override int weakness(string nombre, int dmg)
+        {
+            throw new NotImplementedException();
+        }
     }
     public class ninos : stats
     {
@@ -197,6 +295,11 @@ namespace LONGLIFE.NPC.MOBS
         }
 
         public override Tuple<string, int> Nameatk(int number)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int weakness(string nombre, int dmg)
         {
             throw new NotImplementedException();
         }

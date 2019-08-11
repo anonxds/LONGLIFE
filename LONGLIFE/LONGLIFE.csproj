@@ -61,6 +61,7 @@
     <Compile Include="Botones\Opciones.cs" />
     <Compile Include="combatSYS\dialogos.cs" />
     <Compile Include="combatSYS\normalcombat.cs" />
+    <Compile Include="dialogos\dialogoplus.cs" />
     <Compile Include="dialogos\listadialogos.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
